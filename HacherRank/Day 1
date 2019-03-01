@@ -1,0 +1,68 @@
+____________________ C# ____________________________________
+using System;
+using System.Collections.Generic;
+using System.IO;
+
+class Solution {
+    static void Main(String[] args) {
+        int i = 4;
+        double d = 4.0;
+        string s = "HackerRank ";
+        
+        // Declare second integer, double, and String variables.
+        int inputInt, sumInt;
+        double inputDbl, sumDbl;
+        string inputStr, SumStr;
+
+        // Read and save an integer, double, and String to your variables.
+        inputInt = Convert.ToInt32(Console.ReadLine());
+        //Console.WriteLine(inputInt);
+        inputDbl = Convert.ToDouble(Console.ReadLine());
+        //Console.WriteLine(inputDbl);
+        inputStr = Console.ReadLine();
+        //Console.WriteLine(inputStr);
+
+        // Print the sum of both integer variables on a new line.
+        sumInt = i + inputInt;
+        Console.WriteLine(sumInt);
+
+        // Print the sum of the double variables on a new line.
+        sumDbl = d + inputDbl;
+        Console.WriteLine(sumDbl);
+
+        // Concatenate and print the String variables on a new line
+        // The 's' variable above should be printed first.
+        SumStr = s + inputStr;
+        Console.WriteLine(SumStr);
+    }
+}
+
+
+
+____________________ Python 3 _______________________________
+i = 4
+d = 4.0
+s = 'HackerRank '
+
+# Declare second integer, double, and String variables.
+i2 = 0
+d2 = 0.0
+s2 = ''
+
+# Read and save an integer, double, and String to your variables.
+i2 = int(input())
+d2 = float(input())
+s2 = str(input())
+
+# Print the sum of both integer variables on a new line.
+SumInt = i + i2
+print(SumInt)
+
+# Print the sum of the double variables on a new line.
+SumDbl = d + d2
+print (SumDbl)
+
+# Concatenate and print the String variables on a new line
+# The 's' variable above should be printed first.
+SumStr = s +s2
+print(SumStr)

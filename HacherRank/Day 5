@@ -1,0 +1,56 @@
+___________________________ C# _________________________________
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Collections;
+using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.Serialization;
+using System.Text.RegularExpressions;
+using System.Text;
+using System;
+
+class Solution {
+
+    //some simple math
+    public static void Math(int n)
+    {
+        for (int i = 1; i <= 10; i++)
+        {
+            int result = n*i;
+            Console.WriteLine(n+" x "+i+" = "+result);    
+            //Console.WriteLine(result);            
+        }
+        
+    }
+
+    static void Main(string[] args) {
+        int n = Convert.ToInt32(Console.ReadLine());
+
+        //function call
+        Math(n);
+    }
+}
+
+
+___________________________ Python _____________________________
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+def Math(n):
+    for i in range(1,11,1):
+        result = n*i;
+        print(n,"x",i,"=",result);
+
+if __name__ == '__main__':
+    n = int(input())
+
+    Math(n);

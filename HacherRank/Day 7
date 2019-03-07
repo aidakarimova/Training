@@ -1,0 +1,59 @@
+______________________ C# __________________________
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Collections;
+using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.Serialization;
+using System.Text.RegularExpressions;
+using System.Text;
+using System;
+
+class Solution {
+
+    static void Reverse(int n,int[] numbers)
+    {
+        Array.Reverse(numbers); 
+        for (int i=0; i< numbers.Length; i++)
+        {
+            Console.Write(numbers[i]);
+            Console.Write(" ");
+        }
+         
+    }
+
+    static void Main(string[] args) {
+        int n = Convert.ToInt32(Console.ReadLine());
+
+        int[] arr = Array.ConvertAll(Console.ReadLine().Split(' '), arrTemp => Convert.ToInt32(arrTemp))
+        ;
+
+        Reverse(n, arr);
+    }
+}
+
+______________________ Python3 ______________________
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+def Reverse(n, numbers):
+
+    numbers.reverse();
+    for i in range (0,n,1):
+        print (numbers[i], end=" ");
+
+if __name__ == '__main__':
+    n = int(input())
+
+    arr = list(map(int, input().rstrip().split()))
+    
+    Reverse(n, arr);

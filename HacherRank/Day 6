@@ -1,3 +1,87 @@
 ___________________________ C# ________________________________
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+class Solution {
+    static void Main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution */
+        int n = Convert.ToInt32(Console.ReadLine());
+        string [] s = new string [n];
+        for (int i=0; i<n; i++)
+        {
+            s[i] = Console.ReadLine();
+        }
+        
+        for (int i=0; i<n; i++)
+        {
+            char[] CharArr;
+            //Console.WriteLine(s);
+            CharArr = s[i].ToCharArray();
+            List <char> even = new List<char>();//четные
+            List <char> odd = new List<char>();
+            
+            for (int j=0; j<CharArr.Length; j++)
+            {
+                if (j%2==0)
+                {
+                    even.Add(CharArr[j]);
+                    //Console.WriteLine(array[j]);
+                    
+                }
+
+                else
+                {               
+                    odd.Add(CharArr[j]);
+                    //Console.WriteLine(array[j]);
+                    
+                }
+
+            }
+
+            List <char> res = new List<char>();
+            List <char> space = new List<char>(){' '};
+            res = even.Concat(space).Concat(odd).ToList();
+            for(int j=0; j<res.Count; j++)
+            {
+                Console.Write(res[j]);
+            }
+            Console.WriteLine();
+        
+        }
+
+    }
+}
 
 ___________________________ Python 3 __________________________
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+n = int(input());
+s = [];
+
+for i in range(0, n, 1):
+    StrInput = str(input());
+    s.append(StrInput);
+    #print(s);
+
+for i in range(0, n ,1):
+    NewS = list(s[i]);
+    #print(NewS);
+
+    even = [];
+    odd = [];
+    
+    l = len(NewS);
+    #print (l);
+    for j in range(0, l, 1):
+        if (j%2==0):
+            even.append(NewS[j]);
+        else:
+            odd.append(NewS[j]);
+    even.append(' ');
+    res = even + odd;
+
+    #вывод результата
+    for o in range(0,l+1,1):
+        print(res[o],end='');
+    print();

@@ -1,1 +1,79 @@
+___________________________ C# ___________________________________
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
+class Solution {
+    static void Main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution */
+        //введение данных с клавиатуры
+        int n = Convert.ToInt32(Console.ReadLine());
+        //Создание словаря
+        Dictionary<string, string> NamePhone = new Dictionary<string, string>(); 
+        
+         //заполнение словаря
+       for (int i=0;i<n;i++)
+       {
+            string s = Console.ReadLine();
+            string name = s.Split(' ')[0];
+            string phone = s.Split(' ')[1];
+            // Console.WriteLine(name);
+            // Console.WriteLine(phone);
+
+            NamePhone.Add(name, phone);
+            //Console.WriteLine(NamePhone[name]);      
+       }
+
+        //вывод словаря
+        /*foreach (KeyValuePair<string, string> kvp in NamePhone)
+        {
+            Console.WriteLine(kvp.Key+"="+kvp.Value);
+        }*/
+        
+        string data = "0";          
+        data = Console.ReadLine();
+        //while (data != null)//
+        while (!string.IsNullOrWhiteSpace(data))
+        { 
+            if(NamePhone.ContainsKey(data))
+            {   
+                Console.WriteLine(data + "=" + NamePhone[data]);
+            }              
+
+            else
+            {
+                Console.WriteLine("Not found");
+            }     
+            data = Console.ReadLine();                             
+        }            
+    }
+}
+
+___________________________ Python3 ___________________________________
+import sys;
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+n = int(input());
+#dictionary
+NamePhone = dict();
+
+for i in range (0,n,1):
+    s = str(input());
+    name = s.split(' ')[0];
+    phone = s.split(' ')[1];
+    NamePhone[name] = phone;
+#print(NamePhone);
+          
+data = str(input());
+#print(data);
+
+while (data != None):
+    if data in NamePhone.keys():  
+        print(data + "=" + NamePhone.get(data));
+    else:
+        print("Not found");  
+    
+    try:
+        data = str(input()); 
+    except EOFError:
+        break;

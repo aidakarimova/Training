@@ -75,3 +75,43 @@ class Solution {
 }
 
 ______________________________ Python 3 _____________________________
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+def RepeatUnits(n):
+    Ost = [];
+
+    while(n>0):
+        ost = n%2;#остаток
+        Ost.append(ost);
+        che = n//2;#целое
+        n = che;
+
+    l = len(Ost);
+    Ost.reverse();
+    
+    count = 0;
+    maxi = [];
+
+    #counting quantity
+    for j in range(0,l,1):
+        if (Ost[j]==1):
+            count = count + 1;
+            maxi.append(count);
+        else:
+            maxi.append(count);
+            count = 0;
+
+    maxi.sort();
+    c = len(maxi);
+    print(max(maxi));
+    #print(maxi[c-1]);
+
+if __name__ == '__main__':
+    n = int(input())
+    RepeatUnits(n);

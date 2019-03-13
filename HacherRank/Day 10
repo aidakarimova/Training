@@ -1,0 +1,77 @@
+_____________________________ C# __________________________
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Collections;
+using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.Serialization;
+using System.Text.RegularExpressions;
+using System.Text;
+using System;
+
+class Solution {
+
+    static void RepeatUnits(int n)//int
+    {
+        //convert to binary
+        int ost, che;
+        List <int> Ost = new List<int>();
+
+        while(n>0)
+        {
+            ost = n%2;//остаток
+            Ost.Add(ost);
+            che = n/2;//целое
+            n = che;
+        }
+        //Ost.Add(n);
+
+        int l = Ost.Count;
+        Ost.Reverse();
+        /*//output on display
+        //for (int i=0; i<l; i++)
+        for (int i=l-1; i>-1; i--)
+        {
+            Console.Write(Ost[i]);
+        }*/
+
+        int count = 0;
+        List <int> max = new List<int>();
+        int [] max2;
+
+        //counting quantity
+        for (int j=0; j<l; j++)
+        {
+            if (Ost[j]==1)
+            {   
+                count = count + 1;
+                max.Add(count);
+                //Console.WriteLine(count);
+            }
+
+            else
+            {
+                max.Add(count);
+                count = 0;
+                //Console.WriteLine(count);
+            }    
+        }
+
+        max.Sort();
+        int c = max.Count;
+        Console.WriteLine(max[c-1]);
+                          
+    }
+
+    static void Main(string[] args) {
+        int n = Convert.ToInt32(Console.ReadLine());
+
+        RepeatUnits(n);
+    }
+}
+
+______________________________ Python 3 _____________________________

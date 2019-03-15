@@ -68,7 +68,7 @@ class Student : Person{
            return ("A"); 
         else if (scores1>=80 && scores1<90)
            return ("E"); 
-        else if (scores1>=90 && scores1<100)
+        else if (scores1>=90 && scores1<=100)
            return ("O");
         else
             return ("");
@@ -139,7 +139,7 @@ class Student(Person):
            return ("A"); 
         elif (scores1>=80 and scores1<90):
            return ("E"); 
-        elif (scores1>=90 and scores1<100):
+        elif (scores1>=90 and scores1<=100):
            return ("O");
         else:
             return ("");

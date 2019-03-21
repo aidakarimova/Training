@@ -1,0 +1,41 @@
+____________________________ C# ____________________________________
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+class Solution {
+
+    static void Main(String[] args) {
+        string S = Console.ReadLine();
+
+        int I = 0;
+
+        try
+        {
+            I = Convert.ToInt32(S);  
+            Console.WriteLine(I);  
+        }
+
+        catch (Exception e)
+        {   
+            Console.WriteLine("Bad String");
+            //Console.WriteLine("Bad String: {0}", e.GetType().Name);
+        }
+
+    }
+}
+
+________________________ Python 3 __________________________________
+#!/bin/python3
+
+import sys
+
+S = input().strip();
+
+try:
+    I = int(S);  
+    print(I);  
+except:
+    print("Bad String");
+    #print("Bad String: {0}", e.GetType().Name);

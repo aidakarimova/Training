@@ -1,0 +1,70 @@
+_________________________________ C# _________________________________
+using System;
+
+//Write your code here
+class Calculator
+{
+    public Calculator(){}
+
+    public int power(int n,int p)
+    {
+        //Console.WriteLine(n, p);
+        if (n>=0 && p>=0)
+        {
+            int res = 0;
+            res = Convert.ToInt32(Math.Pow(n, p));
+            return res;
+        }
+
+        else
+        {
+            string s = "n and p should be non-negative";
+            throw new Exception(s);//ручное генерирование ошибки
+        }
+    }
+}
+
+class Solution{
+    static void Main(String[] args){
+        Calculator myCalculator=new  Calculator();
+        int T=Int32.Parse(Console.ReadLine());
+        while(T-->0){
+            string[] num = Console.ReadLine().Split();
+            int n = int.Parse(num[0]);
+            int p = int.Parse(num[1]); 
+            try{
+                int ans=myCalculator.power(n,p);
+                Console.WriteLine(ans);
+            }
+            catch(Exception e){
+               Console.WriteLine(e.Message);
+
+            }
+        }
+        
+        
+        
+    }
+}
+
+_____________________________ Python 3 _________________________________
+#Write your code here
+
+class Calculator:
+    def power (self, n, p):
+        if (n>=0 and p>=0):
+            res = pow(n, p);
+            return res;
+        else:
+            s = "n and p should be non-negative";
+            raise Exception(s);
+
+myCalculator=Calculator()
+T=int(input())
+for i in range(T):
+    n,p = map(int, input().split())
+    try:
+        ans=myCalculator.power(n,p)
+        print(ans)
+    except Exception as e:
+        print(e)   

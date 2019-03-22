@@ -1,0 +1,133 @@
+_________________________ C# _______________________________
+using System;
+using System.Collections.Generic;
+using System.IO;
+
+class Solution {
+    //Write your code here
+
+    //1. Two instance variables: one for your stack, and one for your queue.
+    List <char> stack = new List<char>();
+    List <char> queue = new List<char>();
+
+    //2. A void pushCharacter(char ch) method that pushes a character onto a stack.
+    public void pushCharacter(char ch)
+    {
+        stack.Add(ch);
+        //Console.WtiteLine();
+    }
+    //3. A void enqueueCharacter(char ch) method that enqueues a character in the queue instance variable.
+    public void enqueueCharacter(char ch)
+    {
+        queue.Add(ch);
+        //Console.WtiteLine();
+    }
+    //4. A char popCharacter() method that pops and returns the character at the top of the stack instance variable.
+    public char popCharacter()
+    {
+        int l = stack.Count;
+        char res = stack[l-1];
+        stack.Remove(res);
+        return res;
+    }
+    //5. A char dequeueCharacter() method that dequeues and returns the first character in the queue instance variable.
+        public char dequeueCharacter()
+    {
+        char res = queue[0];
+        queue.Remove(res);
+        return res;
+    }
+
+
+    static void Main(String[] args) {
+        // read the string s.
+        string s = Console.ReadLine();
+        
+        // create the Solution class object p.
+        Solution obj = new Solution();
+        
+        // push/enqueue all the characters of string s to stack.
+        foreach (char c in s) {
+            obj.pushCharacter(c);
+            obj.enqueueCharacter(c);
+        }
+        
+        bool isPalindrome = true;
+        
+        // pop the top character from stack.
+        // dequeue the first character from queue.
+        // compare both the characters.
+        for (int i = 0; i < s.Length / 2; i++) {
+            if (obj.popCharacter() != obj.dequeueCharacter()) {
+                isPalindrome = false;
+                
+                break;
+            }
+        }
+        
+        // finally print whether string s is palindrome or not.
+        if (isPalindrome) {
+            Console.Write("The word, {0}, is a palindrome.", s);
+        } else {
+            Console.Write("The word, {0}, is not a palindrome.", s);
+        }
+    }
+}
+
+_____________________ Python 3 _____________________________
+import sys
+
+class Solution:
+    # Write your code here
+
+    #1. Two instance variables: one for your stack, and one for your queue.
+    stack = [];
+    queue = [];
+
+    #2. A void pushCharacter(char ch) method that pushes a character onto a stack.
+    def pushCharacter(self, ch):
+        self.stack.append(ch);
+
+    #3. A void enqueueCharacter(char ch) method that enqueues a character in the queue instance variable.
+    def enqueueCharacter (self, ch):
+        self.queue.append(ch);
+
+    #4. A char popCharacter() method that pops and returns the character at the top of the stack instance variable.
+    def popCharacter(self):
+        l = len(self.stack);
+        res = self.stack[l-1];
+        self.stack.remove(res);
+        return res;
+
+    #5. A char dequeueCharacter() method that dequeues and returns the first character in the queue instance variable.
+    def dequeueCharacter(self):
+        res = self.queue[0];
+        self.queue.remove(res);
+        return res;
+
+# read the string s
+s=input()
+#Create the Solution class object
+obj=Solution()   
+
+l=len(s)
+# push/enqueue all the characters of string s to stack
+for i in range(l):
+    obj.pushCharacter(s[i])
+    obj.enqueueCharacter(s[i])
+    
+isPalindrome=True
+'''
+pop the top character from stack
+dequeue the first character from queue
+compare both the characters
+''' 
+for i in range(l // 2):
+    if obj.popCharacter()!=obj.dequeueCharacter():
+        isPalindrome=False
+        break
+#finally print whether string s is palindrome or not.
+if isPalindrome:
+    print("The word, "+s+", is a palindrome.")
+else:
+    print("The word, "+s+", is not a palindrome.")    

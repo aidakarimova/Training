@@ -1,0 +1,95 @@
+_______________________ C# ____________________________
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+class Solution {
+
+    public static void Swap(ref int a, ref int b)
+    {
+        int tmp = b;
+        b = a;
+        a = tmp;
+    }
+
+    static void Main(String[] args) {
+        int n = Convert.ToInt32(Console.ReadLine());
+        string[] a_temp = Console.ReadLine().Split(' ');
+        int[] a = Array.ConvertAll(a_temp,Int32.Parse);
+        
+        int GlobalnumberOfSwaps = 0;
+
+        // Write Your Code Here
+
+        //Bubble Sort
+        for (int i=0; i<n; i++) 
+        {
+            // Track number of elements swapped during a single array traversal
+            int numberOfSwaps = 0;
+        
+            for (int j=0; j<n-1; j++) 
+            {
+            // Swap adjacent elements if they are in decreasing order
+                if (a[j] > a[j + 1])
+                {
+                    Swap(ref a[j], ref a[j + 1]);
+                    numberOfSwaps++;
+                }
+            }
+            
+            GlobalnumberOfSwaps = GlobalnumberOfSwaps + numberOfSwaps;
+
+            // If no elements were swapped during a traversal, array is sorted
+            if (numberOfSwaps == 0) 
+            {
+                break;
+            }
+        }
+
+        Console.WriteLine("Array is sorted in {0} swaps.", GlobalnumberOfSwaps);
+        Console.WriteLine("First Element: " + a[0]);
+        Console.WriteLine("Last Element: " + a[n-1]);
+
+    }
+}
+
+____________________ Python 3 _________________________
+#!/bin/python3
+
+import sys
+
+def Swap(a, j):
+    tmp = a[j + 1];
+    a[j + 1] = a[j];
+    a[j]= tmp;
+
+n = int(input().strip())
+a = list(map(int, input().strip().split(' ')))
+# Write Your Code Here
+
+GlobalnumberOfSwaps = 0;
+#Bubble Sort
+for i in range(0,n,1):
+    #Track number of elements swapped during a single array traversal
+    numberOfSwaps = 0;
+
+    for j in range (0,n-1,1): 
+    #Swap adjacent elements if they are in decreasing order
+        if (a[j] > a[j + 1]):
+            Swap(a, j);
+            '''
+            tmp = a[j + 1];
+            a[j + 1] = a[j];
+            a[j]= tmp;'''
+            numberOfSwaps = numberOfSwaps+1;
+    
+    GlobalnumberOfSwaps = GlobalnumberOfSwaps + numberOfSwaps;
+
+    #If no elements were swapped during a traversal, array is sorted
+    if (numberOfSwaps == 0): 
+        break;
+
+print("Array is sorted in", GlobalnumberOfSwaps, "swaps.");
+print("First Element:", a[0]);
+print("Last Element:", a[n-1]);
+

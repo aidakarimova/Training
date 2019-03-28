@@ -1,0 +1,130 @@
+_______________________________ C# ____________________________________
+using System;
+using System.Collections.Generic;
+class Node
+{
+	public int data;
+	public Node next;
+    public Node(int d){
+        data=d;
+        next=null;
+    }
+		
+}
+class Solution {
+
+ public static Node removeDuplicates(Node head)
+  {
+    //Write your code here 
+    if (head == null)
+    {
+        return head;
+    }
+
+    Node start = head;
+
+    while ((head != null)&&(head.next!=null))
+    {   
+        Node nextNode = head.next;
+
+        while ((nextNode != null) && (head.data == nextNode.data))
+        {           
+            head.next = nextNode.next;
+            nextNode = head.next;
+        }
+
+        head = head.next;
+    }
+    return start;
+  }
+  
+	public static  Node insert(Node head,int data)
+	{
+        Node p=new Node(data);
+		
+		
+		if(head==null)
+			head=p;
+		else if(head.next==null)
+			head.next=p;
+		else
+		{
+			Node start=head;
+			while(start.next!=null)
+				start=start.next;
+			start.next=p;
+			
+		}
+		return head;
+    }
+	public static void display(Node head)
+	{
+		Node start=head;
+		while(start!=null)
+		{
+			Console.Write(start.data+" ");
+			start=start.next;
+		}
+	}
+    static void Main(String[] args) {
+	
+		Node head=null;
+        int T=Int32.Parse(Console.ReadLine());
+        while(T-->0){
+            int data=Int32.Parse(Console.ReadLine());
+            head=insert(head,data);
+        }
+      	head=removeDuplicates(head);
+		display(head);
+	}
+}
+	
+_____________________________ Pyhon 3 _________________________________
+class Node:
+    def __init__(self,data):
+        self.data = data
+        self.next = None 
+class Solution: 
+    def insert(self,head,data):
+            p = Node(data)           
+            if head==None:
+                head=p
+            elif head.next==None:
+                head.next=p
+            else:
+                start=head
+                while(start.next!=None):
+                    start=start.next
+                start.next=p
+            return head  
+    def display(self,head):
+        current = head
+        while current:
+            print(current.data,end=' ')
+            current = current.next
+
+    def removeDuplicates(self,head):
+            #Write your code here
+        if (head == None):
+            return head;
+
+        start = head;
+
+        while ((head != None)and(head.next!= None)):
+            nextNode = head.next;
+
+            while ((nextNode != None)and(head.data == nextNode.data)):         
+                head.next = nextNode.next;
+                nextNode = head.next;
+
+            head = head.next;
+        return start;
+
+mylist= Solution()
+T=int(input())
+head=None
+for i in range(T):
+    data=int(input())
+    head=mylist.insert(head,data)    
+head=mylist.removeDuplicates(head)
+mylist.display(head); 

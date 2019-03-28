@@ -1,0 +1,94 @@
+______________________________ C# _________________________________
+using System;
+using System.Collections.Generic;
+using System.IO;
+class Solution {
+    static void Main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution */
+
+        int T=Int32.Parse(Console.ReadLine());
+
+        int[] data = new int[T];
+
+        for (int i=0; i<data.Length; i++)
+        {
+            data[i]=Int32.Parse(Console.ReadLine());
+        }
+
+        for (int j=0; j<data.Length; j++)
+        {
+            bool b = false;
+
+            if ((data[j]==1)||(data[j]%2==0))
+            {
+                b = true;
+            }
+
+            if(data[j]==2)
+            {
+                b = false;
+            }
+
+            else
+            {
+                double sqrt = Math.Sqrt(data[j]);
+
+                //for (int l=3; l*l<data[j]; l++)
+                for (int l=3; l<=sqrt; l++)
+                {
+                    if(data[j]%l==0)
+                    {
+                        b = true;                   
+                    }
+                }               
+            }
+
+            if(b==true)
+            {
+                Console.WriteLine("Not prime");
+            }
+            else
+            {
+                Console.WriteLine("Prime");
+            }
+        }          
+    }           
+}
+
+
+__________________________ Pyhon 3 ________________________________
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import math
+
+T=int(input());
+data = [];
+
+for i in range (0, T, 1):
+    data.append(int(input()));
+
+for j in range (0, len(data), 1):
+    b = 0;
+
+    if ((data[j]==1)or(data[j]%2==0)):
+        b = 1;
+
+    if(data[j]==2):
+        b = 0;
+
+    else:
+        #double sqrt = Math.Sqrt(data[j]);
+        sqrt = int(math.sqrt(data[j]));
+        
+        for l in range (3, sqrt+1, 1):
+        #l = 3;
+        #while (l*l <= sqrt):
+            if(data[j]%l==0):
+                b = 1;                   
+
+
+    if(b == 1):
+        print("Not prime");
+    else:
+        print("Prime");
+
+

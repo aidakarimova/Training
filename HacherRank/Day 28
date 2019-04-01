@@ -1,0 +1,113 @@
+______________________________ C# __________________________________
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Collections;
+using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.Serialization;
+using System.Text.RegularExpressions;//for regular expression
+using System.Text;
+using System;
+
+class Solution {
+
+    static void AlphabetGmail (List <string> FirstName, List <string> EmailID)
+    {
+        Regex regex = new Regex(@"\b(\w+)(@gmail.com)\b");
+        //Regex regex = new Regex(@"tanya@gmail.com");
+        int i = 0;
+        List <string> newFirstName = new List<string>();
+
+        /*
+        foreach (string j in FirstName)
+        {
+            Console.WriteLine("Имя: "+ i + FirstName[i]);
+            i++;
+        }*/       
+        
+        foreach (string str in EmailID)
+        { 
+            if (regex.IsMatch(str))
+            {
+                newFirstName.Add(FirstName[i]);
+                //Console.WriteLine("Имя: "+ i + FirstName[i]);                
+            }  
+            i++;
+        }
+
+        newFirstName.Sort();
+        foreach (string s in newFirstName)
+        {
+            Console.WriteLine(s);
+        }      
+    }
+
+
+    static void Main(string[] args) {
+        int N = Convert.ToInt32(Console.ReadLine());
+        
+        List <string> FirstName = new List<string>();
+        List <string> EmailID = new List<string>();
+
+        for (int NItr = 0; NItr < N; NItr++) {
+            string[] firstNameEmailID = Console.ReadLine().Split(' ');
+            //Console.WriteLine(firstNameEmailID);
+
+            string firstName = firstNameEmailID[0];
+            FirstName.Add(firstName);
+
+            string emailID = firstNameEmailID[1];
+            EmailID.Add(emailID);
+        }
+
+        //My function
+        AlphabetGmail (FirstName, EmailID);
+    }
+}
+
+
+___________________________ Python 3 _______________________________
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+def AlphabetGmail (FirstName, EmailID):
+    #regex = "\b(\w+)(@gmail.com)\b";
+    i = 0;
+    newFirstName = [];
+
+    for str in EmailID:
+        if (re.findall(r'\b(\w+)(@gmail.com)\b', str)):
+            newFirstName.append(FirstName[i]);
+        i += 1;
+
+    newFirstName.sort();
+    for s in newFirstName:
+        print(s);     
+
+
+if __name__ == '__main__':
+    N = int(input())
+
+    FirstName = [];
+    EmailID = [];
+
+    for N_itr in range(N):
+        firstNameEmailID = input().split()
+
+        firstName = firstNameEmailID[0]
+        FirstName.append (firstName);
+
+        emailID = firstNameEmailID[1]
+        EmailID.append(emailID);
+
+    #print (FirstName);
+    AlphabetGmail(FirstName, EmailID);

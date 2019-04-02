@@ -1,0 +1,90 @@
+__________________________ C# ______________________________
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
+using System.Collections;
+using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.Serialization;
+using System.Text.RegularExpressions;
+using System.Text;
+using System;
+
+class Solution {
+
+    static int BitwiseAnd (int n, int k)//N>=K
+    {
+        int max = 0;
+
+        for (int i=1; i<n; i++)
+            for (int j=i+1; j<=n; j++)
+            {   
+                int ad = i&j;
+                if ((ad<k)&&(ad>max))
+                {
+                    max = ad;
+                    if (max == k-1)
+                    {
+                        return max;
+                    }
+                }              
+            }
+        return(max);
+
+    }
+
+    static void Main(string[] args) {
+        int t = Convert.ToInt32(Console.ReadLine());
+
+        for (int tItr = 0; tItr < t; tItr++) 
+        {
+            string[] nk = Console.ReadLine().Split(' ');
+
+            int n = Convert.ToInt32(nk[0]);
+            int k = Convert.ToInt32(nk[1]);
+
+            if((n>=2)&&(k>=2 && k<=n))
+            {
+               Console.WriteLine(BitwiseAnd(n,k));    
+            }
+                   
+        }
+       
+    }
+}
+
+_______________________ Python 3 ____________________________
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+def BitwiseAnd (n,k):#N>=K
+    maxr = 0;
+    for i in range (1,n,1):
+        for j in range (i+1,n+1,1):  
+            ad = i&j;
+            #if ((ad<k)and(ad>maxr)):
+            if (maxr<ad<k):
+                maxr = ad;
+                if (maxr == k-1):
+                    return maxr;
+    return(maxr);    
+
+if __name__ == '__main__':
+    t = int(input())
+
+    for t_itr in range(t):
+        nk = input().split()
+        n = int(nk[0])
+        k = int(nk[1])
+
+        if((n>=2)and(k>=2 and k<=n)):
+            print(BitwiseAnd(n,k)); 
+     

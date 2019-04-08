@@ -15,4 +15,10 @@ FROM STATION ORDER BY len(CITY);
 SELECT DISTINCT top 1 city, LEN(CITY) 
 FROM STATION ORDER BY len(CITY) desc;
 
+_____________________________________________
+SELECT DISTINCT top 1 CITY, LEN(CITY) 
+FROM STATION ORDER BY len(CITY), CITY;
+
+SELECT DISTINCT top 1 city, LEN(CITY) 
+FROM STATION ORDER BY len(CITY) desc, CITY;
 

@@ -1,0 +1,10 @@
+const entree = 'Enchiladas';
+console.log(entree);
+//entree = 'Tacos';
+const testing = "";
+
+-------------------------
+
+
+const myName = 'Gilberto';
+console.log(myName); // Output: Gilberto

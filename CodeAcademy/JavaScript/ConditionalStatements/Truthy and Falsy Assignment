@@ -1,0 +1,38 @@
+main.js________________
+//let tool = '';
+let tool = 'marker';
+
+// Use short circuit evaluation to assign  writingUtensil variable below:
+
+let writingUtensil = tool || 'pen';
+
+console.log(`The ${writingUtensil} is mightier than the sword.`);
+
+test.js________
+console.log = function() {};
+var rewire = require('rewire'),
+  appModule = rewire('../main.js');
+const { assert, expect } = require('chai');
+const fs = require('fs');
+const Structured = require('structured');
+
+const code = fs.readFileSync('main.js', 'utf8');
+
+describe('', function () {
+  it('', function() {
+    let structureOne = function() {
+      let writingUtensil = tool || _
+    };
+
+    let isMatchOne = Structured.match(code, structureOne);
+
+    assert.isOk(isMatchOne, 'Please do not edit `writingUtensil` directly')
+
+    const tool = appModule.__get__('tool')
+    expect(tool, "Did you reassign `tool` to `'marker'`.").to.deep.equal('marker')
+    const writingUtensil = appModule.__get__('writingUtensil')
+    expect(writingUtensil, "Did you reassign `tool` before the declaration of `writingUtensil`?").to.deep.equal('marker')
+  });
+
+
+});

@@ -1,0 +1,18 @@
+/*
+const plantNeedsWater = function(day) {
+  if (day === 'Wednesday') {
+    return true;
+  } else {
+    return false;
+  }
+};
+*/
+
+//arrow function
+const plantNeedsWater = (day) => {
+  if (day === 'Wednesday') {
+    return true;
+  } else {
+    return false;
+  }
+};

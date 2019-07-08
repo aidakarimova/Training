@@ -1,0 +1,11 @@
+const plantNeedsWater = function(day){
+  if (day === 'Wednesday'){
+    return true;
+  }
+  else{
+    return false;
+  }
+}; 
+
+const a = plantNeedsWater('Tuesday');
+console.log(a);

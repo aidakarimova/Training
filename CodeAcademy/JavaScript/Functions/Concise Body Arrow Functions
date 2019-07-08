@@ -1,0 +1,32 @@
+main.js_________________
+const plantNeedsWater = day => day === 'Wednesday' ? true : false;
+
+test.js______________
+console.log = function() {};
+const { assert } = require('chai');
+const fs = require('fs');
+const Structured = require('structured');
+
+const code = fs.readFileSync('main.js', 'utf8');
+
+describe('', function () {
+  it('', function() {
+    let structureOne = function() {
+      const plantNeedsWater = day => day === $day ? true : false;
+    };
+
+    varCallbacks = [
+      function($day){
+        if($day.value !== 'Wednesday'){
+          return {failure: 'Did you check if `day === \'Wednesday\'`?'}
+        }
+        return true
+      }
+    ]
+
+    let isMatchOne = Structured.match(code, structureOne, { varCallbacks });
+    let parensCheck = code.match(/\(\s*day\s*\)/);
+    assert.isOk(isMatchOne, varCallbacks.failure || 'Did you refactor `plantNeedsWater()` to be a concise body?');
+    assert.isNotOk(parensCheck, 'Did you remove the parentheses around `day` parameter?')
+  });
+});

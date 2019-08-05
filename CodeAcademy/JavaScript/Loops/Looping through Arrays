@@ -1,0 +1,7 @@
+const vacationSpots = ['Bali', 'Paris', 'Tulum'];
+
+// Write your code below
+for (let i=0; i< vacationSpots.length; i++){
+  const s = 'I would love to visit ';
+  console.log(s + vacationSpots[i]);
+}

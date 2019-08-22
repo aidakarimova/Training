@@ -1,0 +1,13 @@
+const robot = {
+  energyLevel: 100,
+  //shorthand:
+  checkEnergy(){
+    console.log(`Energy is currently at ${this.energyLevel}%.`)
+  },
+  //longhand format:
+  checkEnergy: function (){
+    console.log(`Energy is currently at ${this.energyLevel}%.`)
+  }
+};
+
+robot.checkEnergy();
